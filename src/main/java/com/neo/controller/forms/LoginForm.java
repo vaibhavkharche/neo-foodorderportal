@@ -7,14 +7,6 @@ public class LoginForm {
 	private String password;
 	private String curretTokenNo;
 
-	public String getCurretTokenNo() {
-		return curretTokenNo;
-	}
-
-	public void setCurretTokenNo(String curretTokenNo) {
-		this.curretTokenNo = curretTokenNo;
-	}
-
 	public String getError() {
 		return error;
 	}
@@ -23,12 +15,28 @@ public class LoginForm {
 		this.error = error;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCurretTokenNo() {
+		return curretTokenNo;
+	}
+
+	public void setCurretTokenNo(String curretTokenNo) {
+		this.curretTokenNo = curretTokenNo;
 	}
 
 }
