@@ -6,6 +6,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,9 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableAutoConfiguration
 public class ApplicationConfiguration {
 	
+	@Autowired
+	DataSource dataSource;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationConfiguration.class, args);
 	}
@@ -37,16 +41,6 @@ public class ApplicationConfiguration {
 		return vr;
 	}
 	
-	/*@Bean
-	public DataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setUrl("jdbc:mysql://localhost:3306/neodb");
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		dataSource.setDriverClassName("com.mysql.driver.Driver");
-		dataSource.setInitialSize(10);
-		return dataSource;
-	}
 	
 	@Bean
 	public SessionFactory sessionFactory() {
@@ -60,9 +54,9 @@ public class ApplicationConfiguration {
 			        new StandardServiceRegistryBuilder()
 			            .applySettings(configuration.getProperties())
 			            //here you apply the custom dataSource
-			            .applySetting(Environment.DATASOURCE, dataSource())
+			            .applySetting(Environment.DATASOURCE, dataSource)
 			            .build());
 		
 		return sf;
-	}*/
+	}
 }

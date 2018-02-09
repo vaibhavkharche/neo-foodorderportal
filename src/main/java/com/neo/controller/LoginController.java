@@ -1,6 +1,7 @@
 package com.neo.controller;
 
 import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +19,20 @@ public class LoginController {
 	
 //	@Autowired
 //	OrderService orderService;
+	
+	@Autowired
+	SessionFactory sf;
+	
 	private static Logger logger = Logger.getLogger(LoginController.class);
 	
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
-	public String getForm(ModelMap model, Model m) {
+	public String getForm(Model m) {
 		logger.info("login request is being served through GET mode");
 		LoginForm f = new LoginForm();
 		f.setCurretTokenNo("1");	//	TODO fetch from orderController
 		f.setUserName("abc");
 		m.addAttribute("loginForm", f);
+		logger.info(sf.toString());
 		return "login";
 	}
 	
