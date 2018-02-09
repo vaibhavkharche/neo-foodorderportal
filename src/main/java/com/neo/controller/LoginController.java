@@ -1,5 +1,6 @@
 package com.neo.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +18,11 @@ public class LoginController {
 	
 //	@Autowired
 //	OrderService orderService;
-
+	private static Logger logger = Logger.getLogger(LoginController.class);
+	
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
 	public String getForm(ModelMap model, Model m) {
-		System.out.println("-----------in GET ------------");
+		logger.info("login request is being served through GET mode");
 		LoginForm f = new LoginForm();
 		f.setCurretTokenNo("1");	//	TODO fetch from orderController
 		f.setUserName("abc");
@@ -31,7 +33,7 @@ public class LoginController {
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public String doLogin(@ModelAttribute LoginForm data) {
 		//	TODO check credentials
-		System.out.println("username: " + data.getUserName() + " passwd: " + data.getPassword());
+		logger.info("username: " + data.getUserName() + " passwd: " + data.getPassword());
 		return "welcome";
 	}
 }
