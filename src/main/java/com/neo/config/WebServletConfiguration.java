@@ -17,8 +17,9 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
 		webContext.register(ApplicationConfiguration.class);
 		
-		//	manage lifecycle of root Application context
+		//	manage lifecycle of web Application context
 		container.addListener(new ContextLoaderListener(webContext));
+		
 		
 		//	register and map dispatcher servlet
 		ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new DispatcherServlet(webContext));
@@ -26,5 +27,7 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 		dispatcher.addMapping("/");
 		
 	}
+	
+	
 
 }

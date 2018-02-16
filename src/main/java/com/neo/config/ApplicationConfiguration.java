@@ -2,10 +2,6 @@ package com.neo.config;
 
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -13,6 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.MultipartResolutionDelegate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -42,7 +41,8 @@ public class ApplicationConfiguration {
 	}
 	
 	
-	@Bean
+	
+/*	@Bean
 	public SessionFactory sessionFactory() {
 		org.hibernate.cfg.Configuration configuration = new org.hibernate.cfg.Configuration()
 		.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect")
@@ -59,4 +59,4 @@ public class ApplicationConfiguration {
 		
 		return sf;
 	}
-}
+*/}

@@ -20,8 +20,8 @@ public class LoginController {
 //	@Autowired
 //	OrderService orderService;
 	
-	@Autowired
-	SessionFactory sf;
+//	@Autowired
+//	SessionFactory sf;
 	
 	private static Logger logger = Logger.getLogger(LoginController.class);
 	
@@ -32,7 +32,7 @@ public class LoginController {
 		f.setCurretTokenNo("1");	//	TODO fetch from orderController
 		f.setUserName("abc");
 		m.addAttribute("loginForm", f);
-		logger.info(sf.toString());
+//		logger.info(sf.toString());
 		return "login";
 	}
 	
